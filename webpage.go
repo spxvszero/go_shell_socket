@@ -7,7 +7,7 @@ const CmdSocketHTMLPage = `
 <head>
     <meta charset="UTF-8">
     <title>Cmd Socket</title>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
     <style>
         .stick-head{
             display: flex;
@@ -46,12 +46,12 @@ const CmdSocketHTMLPage = `
 
 
     send = function(data){
-        $("#output").append((new Date())+ " ==> "+data+"\n")
+        document.getElementById("output").append((new Date())+ " ==> "+data+"\n")
         c.send(data)
     }
 
     c.onmessage = function(msg){
-        $("#output").append((new Date())+ " <== "+msg.data+"\n")
+        document.getElementById("output").append((new Date())+ " <== "+msg.data+"\n")
         window.scrollTo(0,document.body.scrollHeight);
         console.log(msg)
     }
@@ -63,11 +63,11 @@ const CmdSocketHTMLPage = `
         console.log(err)
     }
 
-    $("#cmd").on('keyup', function (e) {
+    document.getElementById("cmd").addEventListener("keyup", function (e) {
         if (e.key === 'Enter' || e.keyCode === 13) {
             sendmsg()
         }
-    });
+    })
 </script>
 
 
