@@ -1,0 +1,30 @@
+{
+  "port":18080,
+  "Cmd_config": {
+    "web_url": "/cmdsocket",
+    "socket_url": "/ws",
+    "cmds": [
+      {
+        "exec_alias": "ll",
+        "cmd": "ls",
+        "param": "-l"
+      },
+      {
+        "exec_alias": "shtest",
+        "cmd": "sh",
+        "param": "test_go_exec.sh"
+      },
+      {
+        "exec_alias": "pinggithub",
+        "cmd": "ping",
+        "param": "github.com"
+      },
+      {
+        "exec_alias": "cshow",
+        "cmd": "cat",
+        "param": "config.json"
+      }
+    ],
+    "exit_string": "exit"
+  }
+}
