@@ -13,7 +13,7 @@ run shell scripts by websocket with go lauguage
 * build it with `go build`
 * open browser with config url and have fun
 
-
+<br>
 
 * 下载代码或者直接用 git 拉取过来
 * 通过 go get 装好  [gin](https://github.com/gin-gonic/gin) 和  [websocket](https://github.com/gorilla/websocket)
@@ -148,7 +148,7 @@ $ ./go_shell_socket_linux --signal reload
 * nginx do not support websocket default, if using nginx, see how to config it in this [site](https://nginx.org/en/docs/http/websocket.html).
 * This program will generate a log file and a pid file while running. 
 
-
+<br>
 
 * 这个小工具不支持文本编辑了，不要把它当作一个终端来用，写这个的目的只是为了方便某些不适合登录终端的场景了，要做复杂的任务还是老老实实登入终端吧。
 * 这个程序我在 mac 上和 centos8 上测试是正常的，windows 我也试了，交互正常，不过命令我用的少就没怎么测试了。
