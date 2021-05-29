@@ -31,43 +31,49 @@ const CmdSocketHTMLPage = `
 <div class="stick-foot">
     <input id="cmd">
     <button id="sendcmd" onclick="sendmsg()">send</button>
+    <button id="clearcmd" onclick="clearmsg()">clear</button>
 </div>
 
-
 <script>
-    url = {{.Socket_Path}}
-    c = new WebSocket(url);
+    url = "ws://"+window.location.host+{{.Socket_Path}}
+ 	c = new WebSocket(url);
 
     function sendmsg(){
-        console.log("click")
+        console.log("click");
         div = document.getElementById("cmd");
-        c.send(div.value)
+        c.send(div.value);
     }
-
-
-    send = function(data){
-        document.getElementById("output").append((new Date())+ " ==> "+data+"\n")
-        c.send(data)
+    function clearmsg(){
+        let div = document.getElementById("output");
+        if (div != null) div.innerHTML="";
     }
 
     c.onmessage = function(msg){
-        document.getElementById("output").append((new Date())+ " <== "+msg.data+"\n")
+        document.getElementById("output").append((new Date())+ " <== "+msg.data+"\n");
         window.scrollTo(0,document.body.scrollHeight);
-        console.log(msg)
+        console.log(msg);
     }
 
-    c.onopen = function(err){
-        console.log("open : ",err)
+    c.onopen = function(evt){
+        document.getElementById("output").append("WebSocket Open : \n");
+        console.log("open : ",evt);
     }
-    c.onerror = function (err) {
-        console.log(err)
+    c.onclose = function(evt){
+        document.getElementById("output").append("WebSocket Closed !! \n");
+        console.log("close : ",evt);
+    }
+    c.onerror = function (evt) {
+        document.getElementById("output").append("WebSocket Get Error : "+evt+"\n");
+        console.log(evt);
     }
 
     document.getElementById("cmd").addEventListener("keyup", function (e) {
         if (e.key === 'Enter' || e.keyCode === 13) {
-            sendmsg()
+            sendmsg();
         }
     })
+
+
 </script>
 
 

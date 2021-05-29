@@ -1,0 +1,5 @@
+pp:ps
+hi:echo hihi
+testloop:sh test_loop.sh
+errorsh:asdfff
+errorparams:ls --error

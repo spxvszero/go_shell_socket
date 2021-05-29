@@ -3,6 +3,7 @@
   "Cmd_config": {
     "web_url": "/cmdsocket",
     "socket_url": "/ws",
+    "cmds_file": "cmdsFile",
     "cmds": [
       {
         "exec_alias": "ll",
