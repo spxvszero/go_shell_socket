@@ -146,6 +146,7 @@ $ ./go_shell_socket_linux --signal reload
 * `param` in config file will go through to `exec.Command`, so it does not support complicated command. If you want ,put command in shell script and run with `sh`.
 * ssh command will stuck in goroutine which cannot be kill，but why use it.
 * nginx do not support websocket default, if using nginx, see how to config it in this [site](https://nginx.org/en/docs/http/websocket.html).
+* This program will generate a log file and a pid file while running. 
 
 
 
@@ -154,3 +155,4 @@ $ ./go_shell_socket_linux --signal reload
 * 不支持多参数主要自己不太需要，就没有写了，如果有需要可以自己修改 `exec` 执行的形式。
 * 还有 ssh 命令是会有问题的，开启的进程没办法正常 kill 掉，不晓得什么原因，不过通过一些方式修改之后，应该有办法实现的吧。
 * 通过 nginx 反向代理需要一些特殊配置才能支持 websocket 了，可以看[官网](https://nginx.org/en/docs/http/websocket.html)的描述。
+* 这个工具在运行的时候会生成一个 log 文件和一个 pid 文件。
